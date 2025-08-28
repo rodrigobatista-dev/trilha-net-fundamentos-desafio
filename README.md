@@ -1,38 +1,62 @@
-# DIO - Trilha .NET - Fundamentos
-www.dio.me
+# 🚗 Estacionamento - Desafio de Projeto DIO
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
+## 📖 Sobre o Projeto
+Este projeto foi desenvolvido como parte da **Trilha .NET - Fundamentos** da [Digital Innovation One (DIO)](https://www.dio.me).  
+O objetivo é criar um sistema simples de **gestão de estacionamento**, utilizando conceitos básicos da linguagem **C#** e da **Programação Orientada a Objetos (POO)**.
 
-## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+---
 
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
+## 🎯 Funcionalidades Implementadas
+A classe **Estacionamento** possui os seguintes atributos:
+- **precoInicial**: valor cobrado ao estacionar um veículo.
+- **precoPorHora**: valor cobrado por hora adicional.
+- **veiculos**: lista de placas dos veículos cadastrados.
 
-A classe contém três variáveis, sendo:
+E os seguintes métodos:
 
-**precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
+- **AdicionarVeiculo()**
+  - Solicita a placa do veículo e adiciona à lista de veículos estacionados.
+  
+- **RemoverVeiculo()**
+  - Exibe os veículos cadastrados para o usuário.
+  - Solicita a placa do veículo a ser removido.
+  - Solicita a quantidade de horas que o veículo permaneceu.
+  - Calcula o valor total:  
+    ```
+    valorTotal = precoInicial + (precoPorHora * horas)
+    ```
+  - Remove o veículo da lista e exibe o valor a ser pago.
 
-**precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
+- **ListarVeiculos()**
+  - Lista todos os veículos estacionados no momento.
+  - Caso não existam veículos, informa ao usuário que o estacionamento está vazio.
 
-**veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
+---
 
-A classe contém três métodos, sendo:
+## 🛠️ Tecnologias Utilizadas
+- **.NET 9 / C#**
+- **Programação Orientada a Objetos (POO)**
+- **Coleções (List<string>)**
+- **Laços de repetição e condicionais**
 
-**AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
+---
 
-**RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
+## 📌 Exemplo de Uso
+```text
+Digite a opção desejada:
+1 - Cadastrar veículo
+2 - Remover veículo
+3 - Listar veículos
+4 - Encerrar
 
-**ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
+Digite a placa do veículo para estacionar:
+ABC-1234
 
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
-1. Cadastrar veículo
-2. Remover veículo
-3. Listar veículos
-4. Encerrar
+Os veículos estacionados são:
+Nº 1 - ABC-1234
 
-
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+Digite a placa do veículo para remover:
+ABC-1234
+Digite a quantidade de horas que o veículo permaneceu estacionado:
+3
+O veículo ABC-1234 foi removido e o preço total foi de: R$ 28
